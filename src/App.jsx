@@ -13,7 +13,8 @@ import Subscription from './pages/Subscription';
 import UpdateSubscription from "./pages/UpdateSubscription"
 import AddSubscription from './pages/AddSubscription';
 import UpdatePersonaT from './pages/UpdatePersonalT';
-import ActivityWeek from './component/ActivityWeek';
+import ActivityWeekPage from './pages/ActivityWeekPage';
+import AddActivityWeek from "./pages/AddActivityWeek";
 
 function App() {
   
@@ -31,7 +32,8 @@ function App() {
         <Route path="/update-sub/:id" element={<UpdateSubscription />} />
         <Route path="/update-personal-trainer/:id" element={<UpdatePersonaT />} />
         <Route path="/addSubscription" element={<AddSubscription />} />
-        <Route path="/activity-week" element={<ActivityWeek />} />
+        <Route path="/activity-week" element={<ActivityWeekPage />} />
+        <Route path='/addActivity' element={<AddActivityWeek />}/>
       </Routes>
     </>
   );

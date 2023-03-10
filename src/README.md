@@ -2,7 +2,7 @@ in questio gestionale si possono organizzare le attività di un centro fitness, 
 
 Subscription = pacchetti di iscrizione che offre il centro
 
-Activity of the Week (day week list) = sono le attività in base ai giorni della settimana
+Activity of the Week (day week) = sono le attività in base ai giorni della settimana
 prende il giorno la data e il corso
 
 Lesson (time table) = si collega a Activity of the week e prende l'inizio della lezione la fine è l'id del Activity of the Week
