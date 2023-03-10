@@ -1,0 +1,11 @@
+
+.contTitle{
+    margin-bottom: 50px;
+    text-align: center;
+    justify-content: center;
+}
+.title{
+    color: #646cff;
+    filter: hue-rotate(90deg);
+    text-shadow: 0 5px 10px black;
+}

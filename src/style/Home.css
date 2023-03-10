@@ -1,0 +1,50 @@
+.container{     
+color-scheme: light dark;
+background-color: #242424;
+}
+img{
+    
+    width: 100px;
+    height: 100px;
+    filter: hue-rotate(90deg);   
+}
+img:hover{
+    background-color: #747bff;
+}
+.imgclass{
+    width: 30px;
+    height: 30px;
+    background-color: #747bff;
+    box-shadow: 0 5px 10px black;
+}
+.work-view{
+    color: white;
+    text-shadow: 0 5px 10px black;
+}
+.work-view:hover{
+    color: #646cff;
+    filter: hue-rotate(90deg);
+}
+.btnlink{
+    
+    padding: 0.8em 1.2em;
+    box-shadow: 0 2px 8px black;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    background-color: #1a1a1a;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    background-color: transparent;
+    transition: border-color 0.15s;
+}
+.btnlink:hover {
+    border-color: #646cff;
+    filter: hue-rotate(90deg);
+}
+
+.btnlink:focus,
+.btnlink:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}

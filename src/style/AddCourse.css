@@ -1,0 +1,19 @@
+
+.boxTable{
+    height: 80%;
+    width: 500px;
+    margin-top: 50px;
+}
+.save{
+    padding: 0.8em 1.2em;
+    box-shadow: 0 2px 8px black;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    background-color: #1a1a1a;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    background-color: transparent;
+    transition: border-color 0.15s;
+}
