@@ -46,7 +46,7 @@ const UpdatePersonaT = ()=>{
         });
     },[id]);
 
-    //funzioni per fare lupdate
+    //funzioni per fare l'update
     function changeFristName(element){
         const {name, value} = element.target;
         setPersonalT({...personalT,[name]:value});
@@ -75,10 +75,10 @@ const UpdatePersonaT = ()=>{
       const { name, value } = element.target;
       setPersonalT({ ...personalT, [name]: value });
     }
-    function changeCourses(element) {
+    /*function changeCourses(element) {
       const { name, value } = element.target;
       setPersonalT({ ...personalT, [name]: value });
-    }
+    }*/
 
     async function fetchPut(personalTrainer){
         const response = await fetch(
@@ -220,7 +220,7 @@ const UpdatePersonaT = ()=>{
                           }
                         }
                         setSelectedCourse(values);
-                        setPersonalT({...personalT,courses:values}) // con questa riga di codice sto settando epr fare l'update
+                        setPersonalT({...personalT,courses:values}) // con questa riga di codice sto settando per fare l'update
                       }}
                     >
                       {courses.map((c) => (

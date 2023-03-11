@@ -15,6 +15,7 @@ import AddSubscription from './pages/AddSubscription';
 import UpdatePersonaT from './pages/UpdatePersonalT';
 import ActivityWeekPage from './pages/ActivityWeekPage';
 import AddActivityWeek from "./pages/AddActivityWeek";
+import UpdateActivityWeek from './pages/UpdateActivityWeek';
 
 function App() {
   
@@ -34,6 +35,7 @@ function App() {
         <Route path="/addSubscription" element={<AddSubscription />} />
         <Route path="/activity-week" element={<ActivityWeekPage />} />
         <Route path='/addActivity' element={<AddActivityWeek />}/>
+        <Route path='/update-activity/:id'element={<UpdateActivityWeek />}/>
       </Routes>
     </>
   );

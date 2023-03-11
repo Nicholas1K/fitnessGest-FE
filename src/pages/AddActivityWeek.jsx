@@ -67,7 +67,7 @@ const AddActivityWeek = () => {
             className="imgclass rounded-circle border border-primary border-opacity-50"
             alt="new course"
           />
-          <h2 className="text-center">Personal Trainer Create</h2>
+          <h2 className="text-center">Activity Week Create</h2>
           <div className="boxTable row">
             <div className="col-sm-1 col-md-5 container justify-content-center">
               <div className="container">
@@ -135,4 +135,3 @@ const AddActivityWeek = () => {
     );
 }
 export default AddActivityWeek;
-//TODO COMPLETARE QUESTA PAGINA
