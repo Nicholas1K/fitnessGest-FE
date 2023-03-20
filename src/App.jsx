@@ -16,6 +16,10 @@ import UpdatePersonaT from './pages/UpdatePersonalT';
 import ActivityWeekPage from './pages/ActivityWeekPage';
 import AddActivityWeek from "./pages/AddActivityWeek";
 import UpdateActivityWeek from './pages/UpdateActivityWeek';
+import LessonPage from './pages/LessonPage';
+import AddLesson from "./pages/AddLesson";
+import Updatelesson from './pages/UpdateLesson';
+
 
 function App() {
   
@@ -31,11 +35,17 @@ function App() {
         <Route path="/update-addAddressPT" element={<AddAddressPT />} />
         <Route path="/subscription" element={<Subscription />} />
         <Route path="/update-sub/:id" element={<UpdateSubscription />} />
-        <Route path="/update-personal-trainer/:id" element={<UpdatePersonaT />} />
+        <Route
+          path="/update-personal-trainer/:id"
+          element={<UpdatePersonaT />}
+        />
         <Route path="/addSubscription" element={<AddSubscription />} />
         <Route path="/activity-week" element={<ActivityWeekPage />} />
-        <Route path='/addActivity' element={<AddActivityWeek />}/>
-        <Route path='/update-activity/:id'element={<UpdateActivityWeek />}/>
+        <Route path="/addActivity" element={<AddActivityWeek />} />
+        <Route path="/update-activity/:id" element={<UpdateActivityWeek />} />
+        <Route path="/lesson" element={<LessonPage />} />
+        <Route path="/addLesson" element={<AddLesson />} />
+        <Route path='/update-lesson/:id' element={<Updatelesson/>}/>
       </Routes>
     </>
   );

@@ -15,3 +15,10 @@ impletazzioni per migliorare il programma:
 1 - dalla parte back end fare una get che mostra solo gli ultimi sette elementi in modo di non avere uno storico a vista troppo lungo (fare la quary speciale in repository usare findTop7)
 
 2 - get speciali per trovare tutte le attività per mese, per giorno per anno
+
+                                  In Lesson (Time Tables in BE)
+in questa sessione si trovano gli orari delle lezioni nei giorni della settima 
+
+ES: dalle 9 alle 10 lunedì- mercoledì - venerdì Yoga
+
+i collegamenti esterni sono fatti con dayWeek(lista) e Course(singolo)

@@ -80,7 +80,7 @@ const PersonalTrainerPage = () => {
         <img
           src="image/Logo.png"
           className="imgclass rounded-circle border border-primary border-opacity-50"
-          alt="new course"
+          alt="personalTrainer"
         />
         <h2>Personal Trainer</h2>
       </div>

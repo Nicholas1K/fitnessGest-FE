@@ -4,4 +4,7 @@
     width: 500px;  
     
 }
+ul {
+    list-style-type: none;
+}
 

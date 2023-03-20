@@ -96,7 +96,7 @@ const Home = () => {
                 <br />
                 <span className="work-view">Activity of the Week</span>
               </Link>
-              <Link className="link" href="#">
+              <Link to="/lesson" className="link" href="#">
                 <img
                   src="image/Lessons.png"
                   className="imgclass rounded-circle border border-primary border-opacity-50"

@@ -11,7 +11,6 @@ const ListActivityWeek = ({ activity, deleteActivity }) => {
           <tr>
             <th scope="col">ID</th>
             <th scope="col">DAY</th>
-            <th scope="col">LOCAL DATE</th>
             <th scope="col">COURSES</th>
             <th scope="col">COMMAND</th>
           </tr>
@@ -22,7 +21,6 @@ const ListActivityWeek = ({ activity, deleteActivity }) => {
               key={act.id}
               id={act.id}
               day={act.day}
-              currentDay={act.currentDay}
               courses={act.courses}
               deleteActivity={deleteActivity}
             />

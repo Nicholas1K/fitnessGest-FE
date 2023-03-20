@@ -52,10 +52,6 @@ const UpdateActivityWeek = () => {
       setActivity({...activity,[name]:value});
     }
 
-    function changeCurrentDay(element){
-      const{name, value} = element.target;
-      setActivity({...activity,[name]:value});
-    }
 
     async function fetchPut(act){
       const response = await fetch(
@@ -109,18 +105,6 @@ const UpdateActivityWeek = () => {
                     name="day"
                     value={activity.day}
                     onChange={changeDay}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="inputPT" className="form-label">
-                    Local Date
-                  </label>
-                  <input
-                    type="date"
-                    placeholder="yyyy-MM-dd"
-                    name="currentDay"
-                    value={activity.currentDay}
-                    onChange={changeCurrentDay}
                   />
                 </div>
                 <div>

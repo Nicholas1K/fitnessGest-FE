@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import "../style/ListCourse.css";
 
 const PersonalTrainer = ({
   id,
@@ -25,7 +26,13 @@ const PersonalTrainer = ({
         <td>{fiscalCode}</td>
         <td>{telephoneNumber}</td>
         <td>{email}</td>
-        <td>{courses.map((c) => c.name)}</td>
+        <td>
+          <ul>
+            {courses.map((c) => (
+              <li>{c.name}</li>
+            ))}
+          </ul>
+        </td>
         {/*se è una lista bisogna fare un map, c sta per corso (nome dato da me) mentre name (è il nome del parametro da puntare nel backend) se fossero stati vari si sarebbero susseguiti con una concatenazione c.name + "," + c.altro parametro */}
         <td>
           <button onClick={() => navigate("/update-personal-trainer/" + id)}>
