@@ -19,6 +19,8 @@ import UpdateActivityWeek from './pages/UpdateActivityWeek';
 import LessonPage from './pages/LessonPage';
 import AddLesson from "./pages/AddLesson";
 import Updatelesson from './pages/UpdateLesson';
+import UserPage from './pages/UserPage';
+import AddUser from './pages/AddUser';
 
 
 function App() {
@@ -46,6 +48,8 @@ function App() {
         <Route path="/lesson" element={<LessonPage />} />
         <Route path="/addLesson" element={<AddLesson />} />
         <Route path='/update-lesson/:id' element={<Updatelesson/>}/>
+        <Route path='/user' element={<UserPage />}/>
+        <Route path='/addUser' element={<AddUser />}/>
       </Routes>
     </>
   );

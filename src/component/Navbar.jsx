@@ -51,10 +51,12 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" href="#">
+                <Link to="/user" className="nav-link" href="#">
                   User
                 </Link>
-                <Link to="/update-addAddressPT" className="nav-link" href="#"> {/* TODO da eliminare una volta fatta la pagina */}
+                <Link to="/update-addAddressPT" className="nav-link" href="#">
+                  {" "}
+                  {/* TODO da eliminare una volta fatta la pagina */}
                   Add Address
                 </Link>
               </li>

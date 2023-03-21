@@ -59,9 +59,11 @@ const Home = () => {
               <p className="card-text mt-3">
                 In this section you can create your <br /> new User
               </p>
-              <button type="button" className="btnHome btn-sm mt-3">
-                Create
-              </button>
+              <div className="mt-5">
+                <Link className="btnlink" to="/addUser">
+                  Create
+                </Link>
+              </div>
             </div>
           </div>
         </div>
