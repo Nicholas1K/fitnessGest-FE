@@ -9,7 +9,7 @@ const User = ({
   fiscalCode,
   telephoneNumber,
   email,
-  course,
+  courses,
   subscription,
   deleteUser,
 }) => {
@@ -21,13 +21,12 @@ const User = ({
         <td>{firstName}</td>
         <td>{lastName}</td>
         <td>{dateOfBirth}</td>
-        <td>{workStart}</td>
         <td>{fiscalCode}</td>
         <td>{telephoneNumber}</td>
         <td>{email}</td>
         <td>
           <ul>
-            {course.map((c) => (
+            {courses.map((c) => (
               <li>{c.name}</li>
             ))}
           </ul>

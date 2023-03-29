@@ -21,6 +21,10 @@ import AddLesson from "./pages/AddLesson";
 import Updatelesson from './pages/UpdateLesson';
 import UserPage from './pages/UserPage';
 import AddUser from './pages/AddUser';
+import AddAddressUser from './pages/AddAddressUser';
+import AddressPTPage from './pages/AddressPTPage';
+import AddressUserPage from './pages/AddressUserPage';
+import UpdateAddressPT from './pages/UpdateAddressPT';
 
 
 function App() {
@@ -34,7 +38,8 @@ function App() {
         <Route path="/update-course/:id" element={<UpdateCorse />} />
         <Route path="/personal-trainer" element={<PersonalTrainerPage />} />
         <Route path="/addPersonalTrainer" element={<AddPersonalTrainer />} />
-        <Route path="/update-addAddressPT" element={<AddAddressPT />} />
+        <Route path="/add-AddressPT" element={<AddAddressPT />} />
+        <Route path="/addressPTpage" element={<AddressPTPage />} />
         <Route path="/subscription" element={<Subscription />} />
         <Route path="/update-sub/:id" element={<UpdateSubscription />} />
         <Route
@@ -47,9 +52,12 @@ function App() {
         <Route path="/update-activity/:id" element={<UpdateActivityWeek />} />
         <Route path="/lesson" element={<LessonPage />} />
         <Route path="/addLesson" element={<AddLesson />} />
-        <Route path='/update-lesson/:id' element={<Updatelesson/>}/>
-        <Route path='/user' element={<UserPage />}/>
-        <Route path='/addUser' element={<AddUser />}/>
+        <Route path="/update-lesson/:id" element={<Updatelesson />} />
+        <Route path="/user" element={<UserPage />} />
+        <Route path="/addUser" element={<AddUser />} />
+        <Route path="/add-address-user" element={<AddAddressUser />} />
+        <Route path="/addressUSPage" element={<AddressUserPage />}/>
+        <Route path='/update-address-pt/:id' element={<UpdateAddressPT />} />
       </Routes>
     </>
   );

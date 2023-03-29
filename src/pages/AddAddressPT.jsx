@@ -169,7 +169,7 @@ const AddAddressPT = ()=>{
                         <option value="select pt">Personal Trainer</option>
                       {personalTrainers.map((p) => (
                         <option key={p.id} value={p.id}>
-                          {p.id}{p.lastName}
+                          {p.id} : {p.lastName}
                         </option>
                       ))}
                     </select>

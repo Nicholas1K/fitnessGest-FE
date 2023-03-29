@@ -1,7 +1,7 @@
 import User from "./User";
 import "../style/ListCourse.css";
 
-const ListUser = (userList, deleteUser) => {
+const ListUser = ({userList, deleteUser}) => {
   return (
     <table className="tabContainer table table-dark table-striped table-hover">
       <thead>

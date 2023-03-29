@@ -31,7 +31,7 @@ const UpdatePersonaT = ()=>{
         fetchGetAllCourses();
       }, []);
 
-    const fetchGetId= async (id) => {
+    const fetchGetId = async (id) => {
         return fetch("http://localhost:8080/api/personalTrainer/find/" + id);
     };
 
@@ -75,10 +75,7 @@ const UpdatePersonaT = ()=>{
       const { name, value } = element.target;
       setPersonalT({ ...personalT, [name]: value });
     }
-    /*function changeCourses(element) {
-      const { name, value } = element.target;
-      setPersonalT({ ...personalT, [name]: value });
-    }*/
+
 
     async function fetchPut(personalTrainer){
         const response = await fetch(

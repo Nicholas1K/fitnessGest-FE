@@ -22,3 +22,6 @@ in questa sessione si trovano gli orari delle lezioni nei giorni della settima
 ES: dalle 9 alle 10 lunedì- mercoledì - venerdì Yoga
 
 i collegamenti esterni sono fatti con dayWeek(lista) e Course(singolo)
+
+                                   TODO 
+ creare un componente per Address che valga sia per user che personal trainer in modo da fargli una pagina dedicata per poter eliminare e cancellare gli indirizzi, le pagine dedicate devono essere distinte una per user e una per personal trainer poichè per cancellare un utente o un persona trainer bisogna prima eliminare l'indirizzo a loro collegati con la foreing key, dopo di che fixare USER poichè nel momento in cui si aggiunge un user non viene salvato ne la subscription ne tanto meno il corso per questo poi mi crea il problema sul rendering perchè dice he il course.map è undefined. 

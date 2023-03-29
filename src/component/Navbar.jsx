@@ -54,10 +54,11 @@ const Navbar = () => {
                 <Link to="/user" className="nav-link" href="#">
                   User
                 </Link>
-                <Link to="/update-addAddressPT" className="nav-link" href="#">
-                  {" "}
-                  {/* TODO da eliminare una volta fatta la pagina */}
-                  Add Address
+                <Link to="/addressPTpage" className="nav-link" href="#">
+                  Addresses Personal trainers
+                </Link>
+                <Link to="/addressUSPage" className="nav-link" href="#">
+                  Addresses Users
                 </Link>
               </li>
             </ul>
