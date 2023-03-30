@@ -127,7 +127,7 @@ const AddPersonalTrainer = () => {
       method: "POST",
       body: JSON.stringify(personalTrainer),
       headers: { "Content-Type": "application/json" },
-    }).then(() => navigate("/update-addAddressPT"));
+    }).then(() => navigate("/add-AddressPT"));
   }
 
 

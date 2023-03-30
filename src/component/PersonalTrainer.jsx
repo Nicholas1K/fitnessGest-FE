@@ -29,7 +29,7 @@ const PersonalTrainer = ({
         <td>
           <ul>
             {courses.map((c) => (
-              <li>{c.name}</li>
+              <li key={c.id}>{c.name}</li>
             ))}
           </ul>
         </td>

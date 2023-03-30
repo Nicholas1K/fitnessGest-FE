@@ -27,14 +27,13 @@ const AddressUser = ({
           <ul>
             {users.map((us) => (
               <li key={us.id}>
-                {us.id} : 
-                {us.lastName}
+                {us.id} :{us.lastName}
               </li>
             ))}
           </ul>
         </td>
         <td>
-          <button>
+          <button onClick={() => navigate("/update-address-user/" + id)}>
             <span className="btn-update">update</span>
           </button>
           <button onClick={() => deleteAddressUser(id)}>

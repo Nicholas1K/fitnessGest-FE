@@ -9,11 +9,11 @@ const User = ({
   fiscalCode,
   telephoneNumber,
   email,
-  courses,
+  course,
   subscription,
   deleteUser,
 }) => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <>
       <tr>
@@ -26,8 +26,8 @@ const User = ({
         <td>{email}</td>
         <td>
           <ul>
-            {courses.map((c) => (
-              <li>{c.name}</li>
+            {course.map((c) => (
+              <li key={c.id}>{c.name}</li>
             ))}
           </ul>
         </td>
@@ -37,9 +37,6 @@ const User = ({
           <button>
             <span className="btn-update">update</span>
           </button>
-        </td>
-        <td>
-          {/*TODO function to delete */}
           <button onClick={() => deleteUser(id)}>
             <span className="btn-delete">delete</span>
           </button>

@@ -23,5 +23,29 @@ ES: dalle 9 alle 10 lunedì- mercoledì - venerdì Yoga
 
 i collegamenti esterni sono fatti con dayWeek(lista) e Course(singolo)
 
+                                   Info
+I collegamenti del programma sono fatti in modo da evitare il cascade in modo da non avere problemi di modifica dei dati involontari, per tanto se vogliamo eliminare un user prima di farlo dobbiamo eliminare i collegamenti a lui riferito di seguito lascio una mappa per il corretto funzionamento
+
+Eliminare un User :
+prima eliminare l'indirizzo che ha la chiave esterna verso l'user;
+
+Eliminare un Personal Trainer :
+prima eliminare l'indirizzo che ha la chiave esterna verso il Personal Trainer;
+
+Eliminare un Corso :
+prima eliminare il personal trainer che ha la chiave esterna verso il corso;
+
+Eliminare un Subscription :
+prima eliminare gli user che hanno la chiave esterna verso la Subscription ;
+
+Eliminare un Activity Week : 
+prima eliminare i corsi che hanno la chiave esterna verso le Activity Week ;
+
+Eliminare Lesson :
+prima eliminare le Activity Week che hanno la chiave esterna verso Lesson ;
+
+Eliminare Day&TimeWork :
+prima eliminare le lesson e i personal trainer che hanno la chiave esterna verso Day&TimeWork ;
+
                                    TODO 
- creare un componente per Address che valga sia per user che personal trainer in modo da fargli una pagina dedicata per poter eliminare e cancellare gli indirizzi, le pagine dedicate devono essere distinte una per user e una per personal trainer poichè per cancellare un utente o un persona trainer bisogna prima eliminare l'indirizzo a loro collegati con la foreing key, dopo di che fixare USER poichè nel momento in cui si aggiunge un user non viene salvato ne la subscription ne tanto meno il corso per questo poi mi crea il problema sul rendering perchè dice he il course.map è undefined. 
+ terminare la sessione day&TimeWork con l'update e risolvere il bug su User per quanto riguarda il salvataggio di cllegamenti alle tabelle esterne

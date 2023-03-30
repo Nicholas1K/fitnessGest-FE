@@ -107,7 +107,7 @@ const Home = () => {
                 <br />
                 <span className="work-view">Lessons</span>
               </Link>
-              <Link className="link" href="#">
+              <Link className="link" href="#" to="/daytimeWork">
                 <img
                   src="image/Day_and_time.png"
                   className="imgclass rounded-circle border border-primary border-opacity-50"
