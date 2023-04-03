@@ -211,7 +211,7 @@ const UpdatePersonaT = ()=>{
                       onChange={(e) => {
                         const option = e.target.options;
                         const values = [];
-                        for (let i = 0; i < option.length; i++) {
+                        for (let i = 0; i < option.length; i++){
                           if (option[i].selected) {
                             values.push({ id: parseInt(option[i].value) });
                           }

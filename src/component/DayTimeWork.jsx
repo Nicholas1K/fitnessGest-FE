@@ -18,14 +18,12 @@ const DayTimeWork = ({ id, timeTables, personalTrainers,deleteDTW
         <td>
           <ul>
             {personalTrainers.map((pt) => (
-              <li key={pt.id}>
-                {pt.lastName}
-              </li>
+              <li key={pt.id}>{pt.lastName}</li>
             ))}
           </ul>
         </td>
         <td>
-          <button>
+          <button onClick={() => navigate("/update-dayTimeWork/" + id)}>
             <span className="btn-update">update</span>
           </button>
           <button onClick={() => deleteDTW(id)}>

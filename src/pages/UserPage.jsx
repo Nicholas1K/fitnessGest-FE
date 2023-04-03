@@ -31,7 +31,7 @@ const UserPage = () =>{
                   fiscalCode: us.fiscalCode,
                   telephoneNumber: us.telephoneNumber,
                   email: us.email,
-                  course: us.course,
+                  course: us.courses,
                   subscription: us.subscription,
                 };
             });

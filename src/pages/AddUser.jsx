@@ -27,8 +27,9 @@ const AddUser = () => {
   const emailRef = useRef("");
   const fiscalCodeRef = useRef("");
   const telephoneNumberRef = useRef("");
+  
   const [selectedCourse, setSelectedCourse] = useState([]);
-  const subscriptionRef = useRef("");
+  const [selectedSub,setSelectedSub] = useState({});
 
   //redirect
   const navigate = useNavigate();
@@ -141,8 +142,8 @@ const AddUser = () => {
           fiscalCode: fiscalCodeRef.current.value,
           telephoneNumber: telephoneNumberRef.current.value,
           email: emailRef.current.value,
-          course: selectedCourse,
-          subscription: subscriptionRef.current.value,
+          courses: selectedCourse,
+          subscription: selectedSub,
         };
         console.log(user);
 
@@ -283,6 +284,22 @@ const AddUser = () => {
                     Subscription
                   </label>
                   <select
+                    multiple
+                    onChange={(e) => {
+                      const option = e.target.options;
+                      let values = {
+                        id: option.id,
+                        type: option.type,
+                        month: option.month,
+                        price: option.price,
+                      };
+                      for (let i = 0; i < option.length; i++) {
+                        if (option[i].selected) {
+                          values = { id: parseInt(option[i].value) };
+                        }
+                      }
+                      setSelectedSub(values);
+                    }}
                   >
                     {subscription.map((sub) => (
                       <option key={sub.id} value={sub.id}>

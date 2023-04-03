@@ -25,13 +25,15 @@ const User = ({
         <td>{telephoneNumber}</td>
         <td>{email}</td>
         <td>
-          <ul>
-            {course.map((c) => (
+          <ul> {/* and serve per fare leggere il .map anche quando è vuoto oppure ci sono problemi di lettura in caso renderizzerà a schermo au array vuoto*/}
+            {course && course.map((c) => (
               <li key={c.id}>{c.name}</li>
             ))}
           </ul>
         </td>
-        <td>{subscription}</td>
+        <td>
+          {subscription.id} : {subscription.type}
+        </td>
         <td>
           {/*TODO function to update */}
           <button>
