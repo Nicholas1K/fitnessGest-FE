@@ -29,6 +29,7 @@ import UpdateAddressUser from './pages/UpdateAddressUser';
 import AddDayTimeWork from './pages/AddDayTimeWork';
 import DayTimeWorkPage from './pages/DayTimeWorkPage';
 import UpdateDayTimeWork from './pages/UpdateDayTimeWork';
+import UpadateUser from './pages/UpadateUser';
 
 
 function App() {
@@ -66,6 +67,7 @@ function App() {
         <Route path='/daytimeWork' element={<DayTimeWorkPage />}/>
         <Route path='/addDTW' element={<AddDayTimeWork />}/>
         <Route path='/update-dayTimeWork/:id' element={<UpdateDayTimeWork/>}/>
+        <Route path='/update-user/:id' element={<UpadateUser />}/>
       </Routes>
     </>
   );

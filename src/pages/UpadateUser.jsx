@@ -1,108 +1,15 @@
+import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "../component/Navbar";
-import "../style/Coursepage.css";
-import "../style/AddCourse.css";
-import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-const AddUser = () => {
-  //Settaggio
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [birthday, setBirthday] = useState("");
-  const [email, setEmail] = useState("");
-  const [courses, setCourses] = useState([]);
-  const [subscription, setSubscription] = useState([]);
-
-  //Controllo
-  const [checkFirstName, setCheckFirstName] = useState("");
-  const [checkLastName, setCheckLastName] = useState("");
-  const [checkBirthday, setCheckBirthday] = useState("");
-  const [checkEmail, setCheckEmail] = useState("");
-  const [btnOnOff, setBtnOnOff] = useState(true);
-
-  //invio dati
-  const firstNameRef = useRef("");
-  const lastNameRef = useRef("");
-  const dateOfBirthRef = useRef("");
-  const emailRef = useRef("");
-  const fiscalCodeRef = useRef("");
-  const telephoneNumberRef = useRef("");
-
-  const [selectedCourse, setSelectedCourse] = useState([]);
-  const [selectedSub, setSelectedSub] = useState({});
-
-  //redirect
+const UpadateUser = () => {
   const navigate = useNavigate();
-
-  //funzioni
-  const checkName = (e) => {
-    const selectedName = e.target.value;
-    setFirstName(selectedName);
-
-    if (/^[a-z]{3,}$/.test(selectedName)) {
-      setCheckFirstName(true);
-    } else {
-      setCheckFirstName(false);
-    }
-  };
-  const checkSurname = (e) => {
-    const selectedSurname = e.target.value;
-    setLastName(selectedSurname);
-
-    if (/^[a-z]{3,}$/.test(selectedSurname)) {
-      setCheckLastName(true);
-    } else {
-      setCheckLastName(false);
-    }
-  };
-  const checkAdult = (e) => {
-    const selectedAge = e.target.value;
-    const currentDate = new Date();
-    setBirthday(selectedAge);
-
-    if (currentDate.getFullYear() - selectedAge.split("-")[0] >= 18) {
-      setCheckBirthday(true);
-    } else {
-      setCheckBirthday(false);
-    }
-  };
-
-  const controllEmail = (e) => {
-    const enteredEmail = e.target.value;
-    setEmail(enteredEmail);
-
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(enteredEmail)) {
-      setCheckEmail(true);
-    } else {
-      setCheckEmail(false);
-    }
-  };
-
-  useEffect(() => {
-    if (checkFirstName && checkLastName && checkBirthday && checkEmail) {
-      setBtnOnOff(false);
-    } else {
-      setBtnOnOff(true);
-    }
-  }, [checkFirstName, checkLastName, checkBirthday, checkEmail]);
-
-  async function fetchGetAllCourses() {
-    try {
-      const responseCourse = await fetch(
-        "http://localhost:8080/api/course/all"
-      );
-
-      const data = await responseCourse.json();
-
-      const trasformCourse = data.map((c) => {
-        return { id: c.id, name: c.name };
-      });
-
-      setCourses(trasformCourse);
-    } catch (error) {
-      throw new Error("request filed");
-    }
-  }
+  const { id } = useParams();
+  const [user, setUser] = useState(null);
+  const [subscription, setSubscription] = useState([]);
+  const [selectedCourse, setSelectedCourse] = useState([]);
+  const [courses, setCourses] = useState([]);
+  const [selectedSub, setSelectedSub] = useState({});
 
   async function fetchGetAllSubscription() {
     try {
@@ -125,6 +32,23 @@ const AddUser = () => {
     }
   }
 
+  async function fetchGetAllCourses() {
+    try {
+      const responseCourse = await fetch(
+        "http://localhost:8080/api/course/all"
+      );
+      const data = await responseCourse.json();
+
+      const trasformCourse = data.map((c) => {
+        return { id: c.id, name: c.name };
+      });
+
+      setCourses(trasformCourse);
+    } catch (error) {
+      throw new Error("request filed");
+    }
+  }
+
   useEffect(
     () => {
       fetchGetAllCourses();
@@ -134,29 +58,74 @@ const AddUser = () => {
     []
   );
 
-  function submitHandler(event) {
-    event.preventDefault();
+  const fetchGetId = async (id) => {
+    return fetch("http://localhost:8080/api/user/find/" + id);
+  };
 
-    console.log("dati inviati correttamente");
+  useEffect(() => {
+    fetchGetId(id)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        if (data) {
+          console.log(data);
+          setUser(data);
+        }
+      });
+  }, [id]);
 
-    const user = {
-      firstName: firstNameRef.current.value,
-      lastName: lastNameRef.current.value,
-      dateOfBirth: dateOfBirthRef.current.value,
-      fiscalCode: fiscalCodeRef.current.value,
-      telephoneNumber: telephoneNumberRef.current.value,
-      email: emailRef.current.value,
-      courses: selectedCourse,
-      subscription: selectedSub,
-    };
-    console.log(user);
-
-    fetch("http://localhost:8080/api/user/create", {
-      method: "POST",
-      body: JSON.stringify(user),
-      headers: { "Content-Type": "application/json" },
-    }).then(() => navigate("/add-address-user"));
+  function changeFristName(element) {
+    const { name, value } = element.target;
+    setUser({ ...user, [name]: value });
   }
+  function changeLastName(element) {
+    const { name, value } = element.target;
+    setUser({ ...user, [name]: value });
+  }
+  function changeDateOfBirth(element) {
+    const { name, value } = element.target;
+    setUser({ ...user, [name]: value });
+  }
+  function changeFiscalCode(element) {
+    const { name, value } = element.target;
+    setUser({ ...user, [name]: value });
+  }
+  function changeTelephoneNumber(element) {
+    const { name, value } = element.target;
+    setUser({ ...user, [name]: value });
+  }
+  function changeEmail(element) {
+    const { name, value } = element.target;
+    setUser({ ...user, [name]: value });
+  }
+  async function fetchPut(updateUser) {
+    const response = await fetch(
+      "http://localhost:8080/api/user/update/" + updateUser.id,
+      {
+        method: "PUT",
+        body: JSON.stringify(updateUser),
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+
+    if(!response.ok){
+        console.error("request filed")
+    }else{
+        navigate("/")
+    }
+  };
+
+      function submitHandler(e) {
+        e.preventDefault();
+        fetchPut(user);
+        console.log(user);
+      }
+      if(user === null){
+        return (
+          <h3 className="text-danger">*** user not found ***</h3>
+        );
+      };
 
   return (
     <>
@@ -164,11 +133,11 @@ const AddUser = () => {
       <div className="contTitle container">
         <h1 className="title text-center">Muscle Gest</h1>
         <img
-          src="image/Logo.png"
+          src="../image/Logo.png"
           className="imgclass rounded-circle border border-primary border-opacity-50"
           alt="new course"
         />
-        <h2 className="text-center">User Create</h2>
+        <h2 className="text-center">User Update</h2>
         <div className="boxTable row">
           <div className="col-sm-1 col-md-5 container justify-content-center">
             <div className="container">
@@ -181,13 +150,9 @@ const AddUser = () => {
                     type="text"
                     placeholder="insert name"
                     name="firstName"
-                    value={firstName}
-                    onChange={checkName}
-                    ref={firstNameRef}
+                    value={user.firstName}
+                    onChange={changeFristName}
                   />
-                  {firstName.length > 1 && !checkFirstName && (
-                    <span className="text-danger">nome errato</span>
-                  )}
                 </div>
                 <div>
                   <label htmlFor="inputPT" className="form-label">
@@ -197,13 +162,9 @@ const AddUser = () => {
                     type="text"
                     placeholder="insert Last Name"
                     name="lastName"
-                    value={lastName}
-                    onChange={checkSurname}
-                    ref={lastNameRef}
+                    value={user.lastName}
+                    onChange={changeLastName}
                   />
-                  {lastName.length > 1 && !checkLastName && (
-                    <span className="text-danger">nome errato</span>
-                  )}
                 </div>
                 <div>
                   <label htmlFor="inputPT" className="form-label">
@@ -213,13 +174,9 @@ const AddUser = () => {
                     type="text"
                     placeholder="yyyy-MM-dd"
                     name="birthday"
-                    value={birthday}
-                    onChange={checkAdult}
-                    ref={dateOfBirthRef}
+                    value={user.birthday}
+                    onChange={changeDateOfBirth}
                   />
-                  {birthday.length > 1 && !checkBirthday && (
-                    <span className="text-danger">devi essere maggiorenne</span>
-                  )}
                 </div>
                 <div>
                   <label htmlFor="inputPT" className="form-label">
@@ -229,7 +186,8 @@ const AddUser = () => {
                     type="text"
                     placeholder="insert FiscalCode"
                     name="fiscalCode"
-                    ref={fiscalCodeRef}
+                    value={user.fiscalCode}
+                    onChange={changeFiscalCode}
                   />
                 </div>
                 <div>
@@ -240,7 +198,8 @@ const AddUser = () => {
                     type="text"
                     placeholder="insert TelephonNumber"
                     name="telephoneNumber"
-                    ref={telephoneNumberRef}
+                    value={user.telephoneNumber}
+                    onChange={changeTelephoneNumber}
                   />
                 </div>
                 <div>
@@ -251,13 +210,9 @@ const AddUser = () => {
                     type="text"
                     placeholder="insert email"
                     name="email"
-                    value={email}
-                    onChange={controllEmail}
-                    ref={emailRef}
+                    value={user.email}
+                    onChange={changeEmail}
                   />
-                  {email.length > 1 && !checkEmail && (
-                    <span className="text-danger">email errata</span>
-                  )}
                 </div>
                 <div>
                   <label htmlFor="inputPT" className="form-label">
@@ -274,6 +229,7 @@ const AddUser = () => {
                         }
                       }
                       setSelectedCourse(values);
+                      setUser({ ...user, courses: values }); // con questa riga di codice sto settando per fare l'update
                     }}
                   >
                     {courses.map((c) => (
@@ -282,8 +238,6 @@ const AddUser = () => {
                       </option>
                     ))}
                   </select>
-                </div>
-                <div>
                   <label htmlFor="inputPT" className="form-label">
                     Subscription
                   </label>
@@ -303,6 +257,7 @@ const AddUser = () => {
                         }
                       }
                       setSelectedSub(values);
+                      setUser({ ...user, subscription: values });
                     }}
                   >
                     {subscription.map((sub) => (
@@ -313,12 +268,8 @@ const AddUser = () => {
                   </select>
                 </div>
                 <div className="box-footer">
-                  <button
-                    type="submit"
-                    className="save mt-2"
-                    disabled={btnOnOff}
-                  >
-                    SAVE
+                  <button type="submit" className="save mt-2">
+                    UPDATE
                   </button>
                 </div>
               </form>
@@ -329,4 +280,4 @@ const AddUser = () => {
     </>
   );
 };
-export default AddUser;
+export default UpadateUser;

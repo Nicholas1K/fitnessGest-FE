@@ -25,10 +25,10 @@ const User = ({
         <td>{telephoneNumber}</td>
         <td>{email}</td>
         <td>
-          <ul> {/* and serve per fare leggere il .map anche quando è vuoto oppure ci sono problemi di lettura in caso renderizzerà a schermo au array vuoto*/}
-            {course && course.map((c) => (
-              <li key={c.id}>{c.name}</li>
-            ))}
+          <ul>
+            {" "}
+            {/* and serve per fare leggere il .map anche quando è vuoto oppure ci sono problemi di lettura in caso renderizzerà a schermo au array vuoto*/}
+            {course && course.map((c) => <li key={c.id}>{c.name}</li>)}
           </ul>
         </td>
         <td>
@@ -36,7 +36,7 @@ const User = ({
         </td>
         <td>
           {/*TODO function to update */}
-          <button>
+          <button onClick={() => navigate("/update-user/" + id)}>
             <span className="btn-update">update</span>
           </button>
           <button onClick={() => deleteUser(id)}>
