@@ -46,6 +46,3 @@ prima eliminare le Activity Week che hanno la chiave esterna verso Lesson ;
 
 Eliminare Day&TimeWork :
 prima eliminare le lesson e i personal trainer che hanno la chiave esterna verso Day&TimeWork ;
-
-                                   TODO 
- terminare la sessione day&TimeWork con l'update e risolvere il bug su User per quanto riguarda il salvataggio di cllegamenti alle tabelle esterne
